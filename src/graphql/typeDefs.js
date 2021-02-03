@@ -7,12 +7,23 @@ module.exports = gql`
   }
 
   type Query {
-    welcome: String!
+    allVaccines: [Vaccine!]!
+    userById(id: ID!): User!
   }
 
   type User {
     id: ID!
     email: String!
+    firstName: String!
+    lastName: String!
+    createdAt: String!
+    updatedAt: String!
+  }
+
+  type Vaccine {
+    id: ID!
+    name: String!
+    state: String!
     createdAt: String!
     updatedAt: String!
   }
@@ -25,5 +36,7 @@ module.exports = gql`
   input RegisterInput {
     email: String!
     password: String!
+    firstName: String!
+    lastName: String!
   }
 `
